@@ -50,12 +50,12 @@ static NSString *const kSystemVersionPlistPath = @"/System/Library/CoreServices/
     // <http://lists.apple.com/archives/carbon-dev/2007/Aug/msg00089.html>).
     // The iPhone doesn't have Gestalt though, so use the plist there.
 #if GTM_MACOS_SDK
-    __Require_noErr(Gestalt(gestaltSystemVersionMajor,
-                            &sGTMSystemVersionMajor), failedGestalt);
-    __Require_noErr(Gestalt(gestaltSystemVersionMinor,
-                            &sGTMSystemVersionMinor), failedGestalt);
-    __Require_noErr(Gestalt(gestaltSystemVersionBugFix,
-                            &sGTMSystemVersionBugFix), failedGestalt);
+    Gestalt(gestaltSystemVersionMajor,
+                            &sGTMSystemVersionMajor);
+    Gestalt(gestaltSystemVersionMinor,
+                            &sGTMSystemVersionMinor);
+    Gestalt(gestaltSystemVersionBugFix,
+                            &sGTMSystemVersionBugFix);
 
     return;
 
